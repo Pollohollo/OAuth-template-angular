@@ -5,12 +5,22 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './profile-card.component.html',
   styleUrls: ['./profile-card.component.scss']
 })
-export class ProfileCardComponent {
+export class ProfileCardComponent{
 
   @Input() user: firebase.User;
   @Output() logoutClick: EventEmitter<null> = new EventEmitter();
 
   logout(){
     this.logoutClick.emit();
+  }
+
+  ngOnChanges(changes){
+    this.verification();
+  }
+
+  verification(){
+    if(!this.user.email.endsWith("@montreal.ca")){
+      this.logout();
+    }
   }
 }
