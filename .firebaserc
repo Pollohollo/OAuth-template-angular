@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "monprojetoauth-284121": {
+      "hosting": {
+        "monProjetOAuth": [
+          "monprojetoauth-284121"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<button 
+    mat-mini-fab 
+    color="primary" 
+    [matTooltip]="user.displayName "
+    [attr.aria-label]="user.displayName"
+    [matMenuTriggerFor]="menu">
+    <img
+        [src]="user.photoURL"
+        [alt]="user.displayName"
+        class="avatar">
+</button>
+
+<mat-menu #menu="matMenu" class="profile-card">
+    <div class="profile-card">
+            <img
+            [src]="user.photoURL"
+            [alt]= "user.displayName"
+            class = "big-avatar">
+            
+        <h4>
+            {{ user.displayName }}
+        </h4>
+        <p>
+            {{ user.email }}
+        </p>
+
+        <mat-divider></mat-divider>
+        <button 
+            (click)="logout()"
+            mat-raised-button>
+            Logout
+        </button>
+        <mat-divider></mat-divider>
+        
+        <div class="profile-footer">
+            Ma premiere OAuth
+        </div>
+    </div>
+
+</mat-menu>
