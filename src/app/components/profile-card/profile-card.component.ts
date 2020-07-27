@@ -10,6 +10,8 @@ export class ProfileCardComponent{
   @Input() user: firebase.User;
   @Output() logoutClick: EventEmitter<null> = new EventEmitter();
 
+  @Output() userNotAllowed: EventEmitter<null> = new EventEmitter();
+
   logout(){
     this.logoutClick.emit();
   }
@@ -20,7 +22,7 @@ export class ProfileCardComponent{
 
   verification(){
     if(!this.user.email.endsWith("@montreal.ca")){
-      this.logout();
+      this.userNotAllowed.emit();
     }
   }
 }

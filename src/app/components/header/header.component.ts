@@ -62,6 +62,23 @@ export class HeaderComponent implements OnDestroy {
     );
   }
 
+  userNotAllowed(){
+    this.authService
+    .logout()
+    .pipe(
+      catchError(error => of(null)),
+      takeUntil(this.destroyed$)
+    )
+    .subscribe(
+      authState =>{
+        this.snackBar.open('User not Allowed', 'OK', {
+          duration: 4000
+        });
+        this.router.navigate(['./feed']);
+      }
+    );
+  }
+
 
 
 }

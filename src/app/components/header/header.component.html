@@ -26,7 +26,8 @@
 
             <app-profile-card
                 [user]="user"
-                (logoutClick) = "logout()">
+                (logoutClick) = "logout()"
+                (userNotAllowed)= "userNotAllowed()">
             </app-profile-card>
 
         </ng-container>
